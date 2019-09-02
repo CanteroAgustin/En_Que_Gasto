@@ -1,0 +1,8 @@
+{
+  "name": "En_Que_Gasto",
+  "app_id": "3bee34ef",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
