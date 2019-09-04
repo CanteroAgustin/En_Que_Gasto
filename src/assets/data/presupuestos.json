@@ -1,0 +1,17 @@
+{
+    "1":{
+        "id":"1",
+        "titulo":"Comida",
+        "descripcion":"Gastos de comida"
+    },
+    "2":{
+        "id":"2",
+        "titulo":"Salidas",
+        "descripcion":"Gastos de Salidas"
+    },
+    "3":{
+        "id":"3",
+        "titulo":"Inversiones",
+        "descripcion":"Gastos de inversiones"
+    }
+}

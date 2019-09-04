@@ -1,0 +1,8 @@
+<ion-list>
+  <ion-item *ngFor="let presupuesto of presupuestos">
+    <ion-label (click)="itemSelected(presupuesto.id)">
+      <h2>{{presupuesto.titulo}}</h2>
+      <p>{{presupuesto.descripcion}}</p>
+    </ion-label>
+  </ion-item>
+</ion-list>
