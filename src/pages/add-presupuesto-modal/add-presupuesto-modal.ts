@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { BackendServiceProvider } from '../../providers/backend-service/backend-service';
+import { Events } from 'ionic-angular';
+import { Presupuesto } from '../../Clases/Presupuesto';
 
 /**
  * Generated class for the AddPresupuestoModalPage page.
@@ -18,22 +20,18 @@ export class AddPresupuestoModalPage {
 
   public titulo: string;
   public descripcion: string;
-
-  constructor(public navCtrl: NavController, private view :ViewController, public navParams: NavParams, private backendServiceProvider: BackendServiceProvider) {
+  public importe: number;
+  
+  constructor(public navCtrl: NavController, public view: ViewController,
+    public navParams: NavParams, private backendServiceProvider: BackendServiceProvider,
+    public events: Events) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddPresupuestoModalPage');
   }
 
-  addPresupuesto(){
-    this.view.dismiss();
-    this.backendServiceProvider.addPresupuesto(this.titulo, this.descripcion)
-      .then(function (docRef) {
-        console.info("Documento guardado con ID: ", docRef.id);
-      })
-      .catch(function (error) {
-        console.error("Error guardando documento: " + error);
-      });
+  addPresupuesto() {
+    this.view.dismiss(new Presupuesto(this.titulo,this.descripcion,this.importe));
   }
 }

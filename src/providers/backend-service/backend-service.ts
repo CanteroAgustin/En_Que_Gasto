@@ -23,10 +23,11 @@ export class BackendServiceProvider {
     return this.fireStore.collection("presupuestos").get();
   }
 
-  addPresupuesto(titulo:string, descripcion: string) {
+  addPresupuesto(presupuesto: Presupuesto) {
     return this.fireStore.collection("presupuestos").add({
-      titulo: titulo,
-      descripcion: descripcion
+      titulo: presupuesto.titulo,
+      descripcion: presupuesto.descripcion,
+      importe: presupuesto.importe
     });
   }
 }

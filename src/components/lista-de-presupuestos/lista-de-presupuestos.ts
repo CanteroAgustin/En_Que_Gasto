@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Presupuesto } from '../../Clases/Presupuesto';
-import { BackendServiceProvider } from '../../providers/backend-service/backend-service'
 
 
 /**
@@ -15,26 +14,17 @@ import { BackendServiceProvider } from '../../providers/backend-service/backend-
 })
 export class ListaDePresupuestosComponent {
 
-  presupuestos: Presupuesto[] = [];
+  @Input() presupuestos: Presupuesto[] = [];
 
-  constructor(private backendServiceProvider: BackendServiceProvider) {
+  constructor() {
 
-    this.backendServiceProvider.getAllPresupuestos()
-      .subscribe((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          let data = doc.data();
-          this.presupuestos.push(new Presupuesto(
-            data.titulo,
-            data.descripcion,
-          ));
-        });
-      }, (error) => {
-        console.error(error);
-        alert("Error al obtener los datos");
-      });
+  }
+
+  ngOnInit(): void {
   }
 
   public itemSelected(id: number) {
     alert(id);
   }
+
 }

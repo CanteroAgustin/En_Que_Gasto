@@ -1,11 +1,12 @@
 export class Presupuesto {
 
-    id: number;
     titulo: string;
     descripcion: string;
+    importe: number;
 
-    constructor(titulo, descripcion) {
+    constructor(titulo: string, descripcion: string, importe: number) {
         this.titulo = titulo;
         this.descripcion = descripcion;
+        this.importe = importe;
     }
 }
